@@ -19,7 +19,7 @@ import Block from '../components/Block';
 
 export default () => {
   const {t} = useTranslation();
-  const {user} = useData();
+  const {user, basket} = useData();
   const navigation = useNavigation();
   const {icons, colors, gradients, sizes} = useTheme();
 
@@ -44,7 +44,7 @@ export default () => {
           style={{marginRight: sizes.sm}}
           onPress={() =>
             navigation.navigate('Screens', {
-              screen: 'Pro',
+              screen: 'Notifications',
             })
           }>
           <Image source={icons.bell} radius={0} color={colors.icon} />
@@ -61,7 +61,7 @@ export default () => {
         <TouchableOpacity
           onPress={() =>
             navigation.navigate('Screens', {
-              screen: 'Pro',
+              screen: 'Shopping',
             })
           }>
           <Image source={icons.basket} radius={0} color={colors.icon} />
@@ -77,7 +77,7 @@ export default () => {
             radius={sizes.sm / 2}
             gradient={gradients?.primary}>
             <Text white center bold size={10} lineHeight={10} paddingTop={3}>
-              3
+              {basket?.items?.length}
             </Text>
           </Block>
         </TouchableOpacity>
@@ -102,19 +102,24 @@ export default () => {
         </Button>
       ),
     },
-    pro: {
+    notifications: {
       ...menu,
-      headerTransparent: true,
-      headerTitle: () => (
-        <Text p white semibold>
-          {t('pro.title')}
-        </Text>
-      ),
       headerRight: () => null,
       headerLeft: () => (
         <Button
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}>
-          <Image source={icons.menu} radius={0} color={colors.white} />
+          onPress={() =>
+            navigation.navigate('Screens', {
+              screen: 'Settings',
+            })
+          }>
+          <Image
+            radius={0}
+            width={10}
+            height={18}
+            color={colors.icon}
+            source={icons.arrow}
+            transform={[{rotate: '180deg'}]}
+          />
         </Button>
       ),
     },
@@ -170,6 +175,71 @@ export default () => {
             />
           </TouchableOpacity>
         </Block>
+      ),
+    },
+    chat: {
+      ...menu,
+      headerLeft: () => (
+        <Button onPress={() => navigation.goBack()}>
+          <Image
+            radius={0}
+            width={10}
+            height={18}
+            color={colors.icon}
+            source={icons.arrow}
+            transform={[{rotate: '180deg'}]}
+          />
+        </Button>
+      ),
+      headerRight: () => (
+        <Block row flex={0} align="center" marginRight={sizes.padding}>
+          <TouchableOpacity
+            style={{marginRight: sizes.sm}}
+            onPress={() =>
+              navigation.navigate('Screens', {
+                screen: 'Notifications',
+              })
+            }>
+            <Image source={icons.bell} radius={0} color={colors.icon} />
+            <Block
+              flex={0}
+              right={0}
+              width={sizes.s}
+              height={sizes.s}
+              radius={sizes.xs}
+              position="absolute"
+              gradient={gradients?.primary}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.dispatch(
+                DrawerActions.jumpTo('Screens', {screen: 'Profile'}),
+              )
+            }>
+            <Image
+              radius={6}
+              width={24}
+              height={24}
+              source={{uri: user.avatar}}
+            />
+          </TouchableOpacity>
+        </Block>
+      ),
+    },
+    rental: {
+      ...menu,
+      headerLeft: () => (
+        <Button onPress={() => navigation.goBack()}>
+          <Image
+            radius={0}
+            width={10}
+            height={18}
+            color={colors.icon}
+            source={icons.arrow}
+            transform={[{rotate: '180deg'}]}
+          />
+        </Button>
       ),
     },
   };

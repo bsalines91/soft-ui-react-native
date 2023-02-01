@@ -1,4 +1,4 @@
-## [1.0.2] 2022-07-20
+## [1.0.2] 2022-07-21
 
 ### Updated dependencies
 
@@ -24,13 +24,3 @@
 - Updated dev dependencies
 - Updated @types/react-native@0.64.12 to @types/react-native@0.67.6
 - Updated jest-expo@44.0.0 to jest-expo@45.0.0
-
-## [1.0.1] 2022-05-17
-
-### Dependencies Update
-
-- all dependencies update
-
-## [1.0.0] 2021-07-07
-
-### Initial Release

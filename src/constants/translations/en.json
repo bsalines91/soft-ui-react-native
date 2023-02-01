@@ -59,7 +59,7 @@
     "home": "Home",
     "components": "Components",
     "articles": "Articles",
-    "rental": "Rental",
+    "rental": "Course",
     "profile": "Profile",
     "settings": "Settings",
     "register": "Create account",
@@ -93,9 +93,70 @@
     "following": "Following",
     "trending": "Trending"
   },
+  "extras": {
+    "title1": "Want to try before",
+    "title2": "you buy?",
+    "description": "For a start, it does not automatically follow that a record amount of ice will melt this summer.",
+    "schedule": "Schedule a test drive:",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "save": "Save for later",
+    "saved": "Saved",
+    "book": "Book",
+    "booked": "Booked",
+    "contactUs": "Contact us"
+  },
   "register": {
     "title": "Welcome",
     "subtitle": "Register with"
+  },
+  "login": {
+    "title": "Welcome",
+    "subtitle": "Sign In with"
+  },
+  "settings": {
+    "recommended": {
+      "title": "Recommended Settings",
+      "subtitle": "These are the most important settings",
+      "faceid": "Use FaceID to sign in",
+      "autolock": "Auto-Lock security",
+      "notifications": "Notifications",
+      "darkmode": "Dark Mode",
+      "language": "Language"
+    },
+    "payment": {
+      "title": "Payment Settings",
+      "subtitle": "These are the payment settings",
+      "options": "Manage Payment Options",
+      "giftcards": "Manage Gift Cards"
+    },
+    "privacy": {
+      "title": "Privacy Settings",
+      "subtitle": "Third most important settings",
+      "agreement": "User Agreement",
+      "privacy": "Privacy",
+      "about": "About"
+    },
+    "notifications": {
+      "title": "Notifications Settings",
+      "subtitle": "These are the most important settings",
+      "mentions": "Someone mentions me",
+      "follows": "Anyone follows me",
+      "comments": "Someone comments me",
+      "offers": "New Offers"
+    }
+  },
+  "rentals": {
+    "title": "Soft UI",
+    "flight": "Flight",
+    "hotel": "Hotel",
+    "train": "Train",
+    "availability": "Check availability",
+    "interested": "You may also be interested in",
+    "viewoffer": "View Offer",
+    "notFound1": "We didn’t find ",
+    "notFound2": " in our app.",
+    "moreOptions": "You can see more options from other categories."
   },
   "profile": {
     "title": "Profile",
@@ -104,15 +165,19 @@
     "following": "Following",
     "aboutMe": "About me"
   },
-  "pro": {
-    "title": "Soft UI PRO",
-    "alert": "This feature is available in PRO version",
-    "components": "• {{count} Components (Buttons, Inputs, Cards, etc)",
-    "screens": "• {{count} Screens (Shopping, Notifications, Chat, etc)",
-    "support": "• Premium Support included",
-    "takeAdvantage": "Take advantage of all the features and screens coded on React Native for both",
-    "appTemplate": "Soft UI PRO React Native is an innovative app template that will help you built stunning mobile applications in no time. It features a huge number of components and screens built to fit together and look amazing:",
-    "saveTime": "This modern app template will save you a lot of time going from prototyping to full-functional code, because all elements are implemented. We wanted the design process to be seamless, so switching from image to the real page is very easy to do!",
-    "buyNow": "Buy now"
+  "notifications": {
+    "title": "Notifications",
+    "read": "Read Notifications",
+    "unread": "Unread Notifications",
+    "personal": "Personal",
+    "business": "Business"
+  },
+  "shop": {
+    "subtotal": {
+      "one": "Cart subtotal (1 item)",
+      "other": "Cart subtotal ({{count}} items)",
+      "zero": "Cart subtotal (0 items)"
+    },
+    "alsoShopped": "Customers who shopped for items in your cart also shopped for"
   }
 }

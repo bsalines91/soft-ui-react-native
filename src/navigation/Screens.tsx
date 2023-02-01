@@ -1,7 +1,26 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import {Articles, Components, Home, Profile, Register, Pro} from '../screens';
+import {
+  About,
+  Agreement,
+  Chat,
+  Components,
+  Extras,
+  Home,
+  Notifications,
+  Privacy,
+  Profile,
+  Register,
+  Login,
+  Course,
+  Courses,
+  Booking,
+  Settings,
+  Shopping,
+  NotificationsSettings,
+} from '../screens';
+
 import {useScreenOptions, useTranslation} from '../hooks';
 
 const Stack = createStackNavigator();
@@ -25,12 +44,25 @@ export default () => {
       />
 
       <Stack.Screen
-        name="Articles"
-        component={Articles}
-        options={{title: t('navigation.articles')}}
+        name="Courses"
+        component={Courses}
+        options={{title: t('navigation.rentals'), ...screenOptions.profile}}
       />
-
-      <Stack.Screen name="Pro" component={Pro} options={screenOptions.pro} />
+      <Stack.Screen
+        name="Course"
+        component={Course}
+        options={{title: t('navigation.rental'), ...screenOptions.rental}}
+      />
+      <Stack.Screen
+        name="Booking"
+        component={Booking}
+        options={{title: t('navigation.booking'), ...screenOptions.rental}}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={{title: t('navigation.chat'), ...screenOptions.chat}}
+      />
 
       <Stack.Screen
         name="Profile"
@@ -39,9 +71,58 @@ export default () => {
       />
 
       <Stack.Screen
+        name="Settings"
+        component={Settings}
+        options={{title: t('navigation.settings'), ...screenOptions.profile}}
+      />
+      <Stack.Screen
+        name="NotificationsSettings"
+        component={NotificationsSettings}
+        options={{title: t('navigation.notifications'), ...screenOptions.back}}
+      />
+      <Stack.Screen
+        name="Notifications"
+        component={Notifications}
+        options={{title: t('navigation.notifications'), ...screenOptions.back}}
+      />
+      <Stack.Screen
+        name="Agreement"
+        component={Agreement}
+        options={{title: t('navigation.agreement'), ...screenOptions.back}}
+      />
+      <Stack.Screen
+        name="About"
+        component={About}
+        options={{title: t('navigation.about'), ...screenOptions.back}}
+      />
+      <Stack.Screen
+        name="Privacy"
+        component={Privacy}
+        options={{title: t('navigation.privacy'), ...screenOptions.back}}
+      />
+
+      <Stack.Screen
         name="Register"
         component={Register}
         options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{headerShown: false}}
+      />
+
+      <Stack.Screen
+        name="Extra"
+        component={Extras}
+        options={{title: t('navigation.extra'), headerRight: () => null}}
+      />
+
+      <Stack.Screen
+        name="Shopping"
+        component={Shopping}
+        options={{title: t('navigation.shopping'), ...screenOptions.back}}
       />
     </Stack.Navigator>
   );

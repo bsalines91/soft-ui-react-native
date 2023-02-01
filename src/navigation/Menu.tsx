@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
-import {Alert, Animated, Linking, StyleSheet} from 'react-native';
+import {Animated, Linking, StyleSheet} from 'react-native';
 
 import {
   useIsDrawerOpen,
@@ -66,11 +66,11 @@ const DrawerContent = (
   props: DrawerContentComponentProps<DrawerContentOptions>,
 ) => {
   const {navigation} = props;
-  const {t} = useTranslation();
   const {isDark, handleIsDark} = useData();
+  const {t} = useTranslation();
   const [active, setActive] = useState('Home');
   const {assets, colors, gradients, sizes} = useTheme();
-  const labelColor = colors.text;
+  const labelColor = isDark ? colors.white : colors.text;
 
   const handleNavigation = useCallback(
     (to) => {
@@ -84,14 +84,10 @@ const DrawerContent = (
 
   // screen list for Drawer menu
   const screens = [
-    {name: t('screens.home'), to: 'Home', icon: assets.home},
-    {name: t('screens.components'), to: 'Components', icon: assets.components},
-    {name: t('screens.articles'), to: 'Articles', icon: assets.document},
-    {name: t('screens.rental'), to: 'Pro', icon: assets.rental},
+    {name: t('screens.rental'), to: 'Courses', icon: assets.rental},
     {name: t('screens.profile'), to: 'Profile', icon: assets.profile},
-    {name: t('screens.settings'), to: 'Pro', icon: assets.settings},
+    {name: t('screens.settings'), to: 'Settings', icon: assets.settings},
     {name: t('screens.register'), to: 'Register', icon: assets.register},
-    {name: t('screens.extra'), to: 'Pro', icon: assets.extras},
   ];
 
   return (
@@ -200,10 +196,7 @@ const DrawerContent = (
           <Text color={labelColor}>{t('darkMode')}</Text>
           <Switch
             checked={isDark}
-            onPress={(checked) => {
-              handleIsDark(checked);
-              Alert.alert(t('pro.title'), t('pro.alert'));
-            }}
+            onPress={(checked) => handleIsDark(checked)}
           />
         </Block>
       </Block>
@@ -213,15 +206,18 @@ const DrawerContent = (
 
 /* drawer menu navigation */
 export default () => {
+  const {isDark} = useData();
   const {gradients} = useTheme();
 
   return (
-    <Block gradient={gradients.light}>
+    <Block gradient={gradients[isDark ? 'dark' : 'light']}>
       <Drawer.Navigator
         drawerType="slide"
         overlayColor="transparent"
+        // eslint-disable-next-line react-native/no-inline-styles
         sceneContainerStyle={{backgroundColor: 'transparent'}}
         drawerContent={(props) => <DrawerContent {...props} />}
+        // eslint-disable-next-line react-native/no-inline-styles
         drawerStyle={{
           flex: 1,
           width: '60%',

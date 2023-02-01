@@ -512,6 +512,16 @@ export interface IImageProps extends ImageProps, ISpacing {
    * Modify the appearance and position of your components using 2D or 3D transformations
    * @see https://reactnative.dev/docs/transforms#transform
    */
+  height?: ImageStyle['height'];
+  /**
+   * Modify the appearance and position of your components using 2D or 3D transformations
+   * @see https://reactnative.dev/docs/transforms#transform
+   */
+  width?: ImageStyle['width'];
+  /**
+   * Modify the appearance and position of your components using 2D or 3D transformations
+   * @see https://reactnative.dev/docs/transforms#transform
+   */
   transform?: ImageStyle['transform'];
   /**
    * Renders the Image component with custom style, overwrite existing/predefined styles
